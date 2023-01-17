@@ -11,20 +11,13 @@ function solveEquation(a, b, c) {
     arr[1] = (-b - Math.sqrt(d) ) / (2*a);
     console.log(arr[0],arr[1]);
   }
-  else {
-    console.log('корней нет');
-  }
   return arr;
 }
 //solveEquation(4, 1, 1);
 
 function calculateTotalMortgage(percent, contribution, amount, countMonths) {
    
-  if (isNaN(percent)) {
-    return false;
-  } else if (isNaN(contribution)) {
-    return false;
-  } else if (isNaN(amount)) {
+  if (isNaN(percent) || isNaN(contribution) || isNaN(amount)) {
     return false;
   } 
   let P = (percent / 100) / 12;
