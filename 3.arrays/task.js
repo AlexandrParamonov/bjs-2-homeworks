@@ -13,5 +13,5 @@ function compareArrays(arr1, arr2) {
     return users.filter(item => item.gender === gender)
       .reduce((acc, item, index, arr) => {
         return acc + item.age / arr.length;
-      }, 0)
+      }, 0) 
   }
