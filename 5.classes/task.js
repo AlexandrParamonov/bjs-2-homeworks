@@ -86,7 +86,7 @@ class PrintEditionItem {
   class Student {
     constructor(name) {
       this.name = name;
-      this.marks = [];
+      this.marks = {};
     }
     addMark(mark, subject) {
       if (mark < 2 || mark > 5) {
