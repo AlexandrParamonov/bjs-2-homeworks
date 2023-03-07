@@ -7,26 +7,19 @@ class AlarmClock{
         if (time === null || callback === undefined){
             throw new Error('Отсутствуют обязательные аргументы')
         }
-        if (this.alarmCollection.includes(time)) {
+        if (this.alarmCollection.some(elem => elem.time === time)) {
             console.warn('Уже присутствует звонок на это же время')
         }
-
         this.alarmCollection.push({time, canCall: true, callback})
        }
     removeClock(time) {
         return this.alarmCollection = this.alarmCollection.filter(el => el.time !== time);
     }
-    getCurrentFormattedTime(){
-        const timeNow = new Date();
-        const hours = timeNow.getHours().toString();
-        const minutes = timeNow.getMinutes().toString();
-        let resultTime = "";
-        if (minutes.length < 2) {
-           resultTime = hours + ":" + 0 + minutes;
-        }  else if (minutes.length >= 2) {
-           resultTime = hours + ":" + minutes;
-        } 
-        return resultTime
+    getCurrentFormattedTime() {
+        return new Date().toLocaleTimeString("ru-Ru", {
+            hour: "2-digit",
+            minute: "2-digit",
+          });
     }
     start(){
         if(this.intervalId !== null) {
